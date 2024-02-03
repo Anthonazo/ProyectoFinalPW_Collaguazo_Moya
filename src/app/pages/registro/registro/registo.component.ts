@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './registo.component.html',
   styleUrls: ['./registo.component.scss']
 })
-export class RegistoComponent {
+export class RegistroComponent {
 
 }
