@@ -3,22 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistroComponent } from './pages/registro/registro/registo.component';
-import { RecuperarCuentaComponent } from './pages/registro/recuperar-cuenta/recuperar-cuenta.component';
-import { IngresoComponent } from './pages/registro/ingreso/ingreso.component';
-import { AgradecimientoComponent } from './pages/registro/agradecimiento/agradecimiento.component';
+import { RegistroComponent } from './pages/auth/registro/registo.component';
+import { RecuperarCuentaComponent } from './pages/auth/recuperar-cuenta/recuperar-cuenta.component';
+import { IngresoComponent } from './pages/auth/ingreso/ingreso.component';
+import { AgradecimientoComponent } from './pages/auth/agradecimiento/agradecimiento.component';
+import { SkeletonComponent } from './layouts/skeleton/skeleton.component';
+import { NavComponent } from './layouts/nav/nav.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroComponent,
-    RecuperarCuentaComponent,
-    IngresoComponent,
-    AgradecimientoComponent
+    SkeletonComponent,
+    NavComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
