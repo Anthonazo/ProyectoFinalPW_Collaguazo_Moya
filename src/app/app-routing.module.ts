@@ -19,24 +19,19 @@ const routes: Routes = [
           import('./pages/main/main.module').then((m) => m.MainModule),
       },
       {
-        path: 'carrito',
+        path: 'checkout',
         loadChildren: () =>
-          import('./pages/carrito/carrito.module').then((m) => m.CarritoModule),
-      },
-      {
-        path: 'verificacion',
-        loadChildren: () =>
-          import('./pages/verificacion/verificacion.module').then((m) => m.VerificacionModule),
-      },
-      {
-        path: 'completada',
-        loadChildren: () =>
-          import('./pages/orden-completada/orden-completada.module').then((m) => m.OrdenCompletadaModule),
+          import('./pages/checkout/checkout.module').then((m) => m.CheckoutModule),
       },
       {
         path: 'descripcion',
         loadChildren: () =>
           import('./pages/descripcion-producto/descripcion.module').then((m) => m.DescripcionModule),
+      },
+      {
+        path: 'productos',
+        loadChildren: () =>
+          import('./pages/productos/productos.module').then((m) => m.ProductosModule),
       },
       { path: '**', redirectTo: '/home', pathMatch: 'full' },
     ],

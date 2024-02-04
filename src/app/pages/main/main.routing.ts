@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarruselComponent } from './carrusel/carrusel.component';
 import { PrincipalComponent } from './principal/principal.component';
 
 const routes: Routes = [
@@ -12,4 +11,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class MainRouting { }
- 
