@@ -4,9 +4,11 @@
     font-family: 'Lexend', sans-serif;
     font-size: 14px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    height: 110px;
-    min-width: 140vh;
+    align-items: center;
+    min-height: 110px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -16,7 +18,15 @@
     align-items: center;
     justify-content: center;
     margin: 0 10px;
+}
 
+.buscar-container{
+    max-width: 100%;
+}
+
+.paginas-container{
+    padding: 15px 0;
+    
 }
 
 .logo-container img {
@@ -30,6 +40,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+
     input{
         width: 300px;
         height: 40px;
@@ -46,6 +57,7 @@
 .container{
     border: 1px solid #00000082;
     border-radius: 50px;
+    max-width: 100%;
 }
 
 nav ul {
@@ -53,6 +65,9 @@ nav ul {
     display: flex;
     justify-content: space-around;
     width: 100%; 
+    li{
+        margin: 0 5px;
+    }
 }
 
 .icon-container {
@@ -100,9 +115,6 @@ select:focus{
         background-color: rgb(255, 255, 255);
     }
 }
-
-
-
 
 
 
