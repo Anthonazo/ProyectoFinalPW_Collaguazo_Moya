@@ -1,1 +1,5 @@
-<app-categorias-card></app-categorias-card>
+<div class="carousel">
+  <img [src]="images[currentIndex]" class="carousel-image">
+  <button (click)="previous()">Anterior</button>
+  <button (click)="next()">Siguiente</button>
+</div>

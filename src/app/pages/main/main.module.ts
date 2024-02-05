@@ -6,7 +6,7 @@ import { CategoriasContainerComponent } from './categorias-container/categorias-
 import { CategoriasCardComponent } from './categorias-card/categorias-card.component';
 import { OfertasContainerComponent } from './ofertas-container/ofertas-container.component';
 import { TendenciasContainerComponent } from './tendencias-container/tendencias-container.component';
-import { PrincipalComponent } from './principal/principal.component';
+import { PrincipalComponent } from './principal/principal.component';;
 
 
 
@@ -21,7 +21,7 @@ import { PrincipalComponent } from './principal/principal.component';
   ],
   imports: [
     CommonModule,
-    MainRouting
+    MainRouting,
   ]
 })
 export class MainModule { }
