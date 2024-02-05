@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
+
+.global-container {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    height: 110px;
+    min-width: 140vh;
+    box-sizing: border-box;
+}
+
+.logo-container, .buscar-container, .paginas-container {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+
+}
+
+.logo-container img {
+    width: 90px;
+    cursor: pointer;
+}
+
+
+.input-research {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    input{
+        width: 300px;
+        height: 40px;
+        border-radius: 25px; 
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 50px;
+        border: none;
+        outline: none;
+    }
+}
+
+
+.container{
+    border: 1px solid #00000082;
+    border-radius: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%; 
+}
+
+.icon-container {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    padding: 5px;
+    background-color: rgba(66, 133, 244, 1);
+    border-radius: 50%;
+    right: 4px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-container {
+    position: relative;
+    display: inline-block;
+}
+
+.select-container i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    z-index: 2; 
+    pointer-events: none; 
+}
+
+.select-container select {
+    padding-left: 40px;
+    z-index: 1; 
+    height: 50px;
+    border-radius: 50px 0 0 50px; 
+    border: none;
+    outline: none;
+}
+
+
+select:focus{
+    background-color: rgba(0, 0, 0, 0.092);
+    outline: none;
+    option{
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+
+
+
+
+
