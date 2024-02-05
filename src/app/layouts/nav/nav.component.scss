@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
 
 .global-container {
-    font-family: 'Lexend', sans-serif;
-    font-size: 14px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -13,6 +11,8 @@
 }
 
 .logo-container, .buscar-container, .paginas-container {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
     flex: 1; 
     display: flex;
     align-items: center;
@@ -40,7 +40,6 @@
     align-items: center;
     justify-content: center;
     position: relative;
-
     input{
         width: 300px;
         height: 40px;
@@ -61,13 +60,20 @@
 }
 
 nav ul {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
     list-style: none;
     display: flex;
     justify-content: space-around;
     width: 100%; 
+    flex-wrap: wrap;
     li{
         margin: 0 5px;
     }
+}
+.menu-container{
+    padding: 10px 100px;
+    text-align: center;
 }
 
 .icon-container {
@@ -117,4 +123,13 @@ select:focus{
 }
 
 
+a {
+    color: black; /* Cambia 'tuColorDeseado' al color que prefieras */
+    text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+}
+
+a:hover {
+    color: #00000082; /* Cambia 'tuColorDeseado' al color que prefieras */
+    text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+}
 
