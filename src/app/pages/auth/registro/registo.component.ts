@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Cliente } from 'src/app/models/Cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-registo',
@@ -7,4 +10,41 @@ import { Component } from '@angular/core';
 })
 export class RegistroComponent {
 
+  boolean: boolean = false;
+  contrasenia: String = '';
+  cliente: Cliente = new Cliente();
+
+  public constructor(private clienteService: ClienteService, private router: Router) { }
+
+  public ingresarCliente() {
+    this.validarContrasenia();
+    if (this.boolean == false) {
+      console.log('Las contraseñas no coinciden');
+      return;
+    } else {
+      this.clienteService.ingresarCliente(this.cliente).subscribe((data: any) => {
+        console.log(data);
+        this.agradecimiento();
+      });
+      this.cliente = new Cliente();
+      this.contrasenia = '';
+    }
+
+  }
+
+  public agradecimiento() {
+    this.router.navigate(['/auth/agradecimiento']);
+  }
+
+  public validarContrasenia() {
+    try {
+      if (this.cliente.contrasenia != this.contrasenia) {
+        this.boolean = false;
+      } else {
+        this.boolean = true;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

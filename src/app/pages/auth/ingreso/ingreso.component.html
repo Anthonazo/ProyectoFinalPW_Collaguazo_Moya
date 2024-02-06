@@ -13,16 +13,16 @@
         <div class="formulario-container">
             <form action="">
                 <div class="email">
-                    <label for="mail"> Email </label>
-                    <input type="email" name="mail" id="mail">
+                    <label for="mail" > Email </label>
+                    <input  type="email" name="mail" id="mail" [(ngModel)]="ingreso.email" >
                 </div>
                 <div class="contasena">
                     <label for="con"> Contraseña </label>
-                    <input type="password" name="con" id="con">
+                    <input type="password" name="con" id="con" [(ngModel)]="ingreso.clave">
                 </div>
                 <div class="botones-container">
                     <button type="submit">Olvide mi contraseña</button>
-                    <button class="n" type="submit">Ingresar</button>
+                    <button class="n" type="submit" (click)="ingresarUsuario()">Ingresar</button>
                     <button type="submit">Registrate</button>
                     <button class="n" type="submit">Ingresar con Google</button>
                     <button type="submit">Ingresar como invitado</button>
