@@ -31,6 +31,16 @@ button:first-of-type {
   left: 10px;
 }
 
+@media (max-width: 600px){
+  .carousel {
+    height: 30vh;
+  }
+
+  .carousel button {
+    display: none;
+  }
+}
+
 button:last-of-type {
   right: 10px;
 }
