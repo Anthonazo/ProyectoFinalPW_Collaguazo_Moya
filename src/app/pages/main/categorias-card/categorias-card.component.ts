@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-categorias-card',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./categorias-card.component.scss']
 })
 export class CategoriasCardComponent {
-
+  @Input() categoria?: any;
 }
