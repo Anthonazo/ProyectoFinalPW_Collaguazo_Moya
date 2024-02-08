@@ -6,5 +6,41 @@ import { Component } from '@angular/core';
   styleUrls: ['./carrusel.component.scss']
 })
 export class CarruselComponent {
+  currentIndex = 0;
+  images = [
+    '/assets/img/carrusel/primera.png',
+    '/assets/img/carrusel/segunda.png',
+    '/assets/img/carrusel/tercera.png'
+  ];
+  touchStartX = 0;
+  touchEndX = 0;
 
+  constructor() {}
+
+  setTouchStartX(event: TouchEvent) {
+    this.touchStartX = event.touches[0].clientX;
+  }
+
+  setTouchEndX(event: TouchEvent) {
+    this.touchEndX = event.changedTouches[0].clientX;
+    this.handleTouchMove();
+  }
+
+  handleTouchMove() {
+    if (this.touchStartX - this.touchEndX > 75) {
+      // Deslizar hacia la izquierda
+      this.next();
+    } else if (this.touchEndX - this.touchStartX > 75) {
+      // Deslizar hacia la derecha
+      this.previous();
+    }
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+  }
+
+  previous() {
+    this.currentIndex = (this.currentIndex + this.images.length - 1) % this.images.length;
+  }
 }
