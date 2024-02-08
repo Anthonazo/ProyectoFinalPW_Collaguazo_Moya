@@ -12,6 +12,7 @@ import { CarritoCardComponent } from './components/carrito-card/carrito-card.com
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ProductoCardComponent]
 })
 export class SharedModule { }
