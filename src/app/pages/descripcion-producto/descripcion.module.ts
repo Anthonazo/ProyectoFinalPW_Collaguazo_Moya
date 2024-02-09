@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DescripcionRouting } from './descripcion.routing';
 import { DescripcionComponent } from './descripcion/descripcion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, NgModel } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     DescripcionRouting,
-    NgbModule
+    FormsModule,
   ]
 })
 export class DescripcionModule { }
