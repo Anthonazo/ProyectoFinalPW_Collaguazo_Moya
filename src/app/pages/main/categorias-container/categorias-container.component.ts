@@ -8,7 +8,7 @@ import { CategoriasService } from 'src/app/services/categorias.service';
 })
 export class CategoriasContainerComponent implements OnInit{
   categorias: any[] = [];
-
+  
   constructor(private _categoriasService: CategoriasService) {
     this.categorias = _categoriasService.getCategorias();
   }
