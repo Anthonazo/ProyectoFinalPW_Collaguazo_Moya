@@ -8,6 +8,7 @@
   .descripcion-precio-container {
     border-bottom: 1px solid #F4F4F4;
     margin-bottom: 10px;
+
     div {
       display: flex;
       flex-direction: row;
@@ -33,6 +34,7 @@
     text-align: center;
     border-bottom: 1px solid #F4F4F4;
     padding-bottom: 10px;
+
     label {
       font-size: 14px;
       font-weight: 500;
@@ -81,25 +83,37 @@
         font-weight: lighter;
       }
     }
-    .container-span{
+
+    .container-span {
       width: 100%;
       display: flex;
       flex-direction: row;
-      div{
+
+      div {
         width: 56px;
         border: 1px solid #F4F4F4;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-right: 10px;
-        img{
+
+        img {
           width: 30px;
         }
 
-        .bitcoin{
+        .bitcoin {
           width: 20px;
         }
       }
     }
+  }
+
+  @media(max-width: 600px) {
+    width: 91%;
+    padding: 10px;
+    margin-left: 20px;
+    min-height: auto;
+    margin-top: 8px;
+    margin-bottom: 20px;
   }
 }

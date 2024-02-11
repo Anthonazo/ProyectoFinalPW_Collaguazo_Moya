@@ -63,6 +63,27 @@
       margin: 0 10px; // Espaciado alrededor de los divisores
     }
   }
+
+  @media(max-width: 600px) {
+    width: 100%;
+    justify-content: start;
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 0;
+
+    .steps {
+      flex-direction: column;
+      max-width: none;
+      width: 100%;
+
+      .step {
+        justify-content: start;
+        padding: 10px 0 10px 20px;
+        border-bottom: 1px solid black;
+      }
+    }
+  }
 }
 
 .form-precio-container {
@@ -77,5 +98,18 @@
 
   .precio {
     width: 30%;
+  }
+
+  @media(max-width: 600px) {
+    flex-direction: column;
+    padding: 0px;
+
+    .formulario {
+      width: 100%;
+    }
+
+    .precio {
+      width: 100%;
+    }
   }
 }

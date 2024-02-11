@@ -1,10 +1,11 @@
-.global-container{
+.global-container {
   width: 100%;
   padding-left: 70px;
   padding-right: 70px;
   display: flex;
   flex-direction: column;
-  .subtotal-container{
+
+  .subtotal-container {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -12,11 +13,13 @@
     height: 80px;
     align-items: center;
     border-bottom: 1px solid #F4F4F4;
-    label{
+
+    label {
       font-size: 14px;
       font-weight: 600;
     }
-    p{
+
+    p {
       margin-bottom: 0;
       color: red;
       font-size: 20px;
@@ -24,15 +27,16 @@
     }
   }
 
-  .detalles-envio-container{
+  .detalles-envio-container {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
     margin-top: 20px;
 
-    .detalles-cliente{
+    .detalles-cliente {
       width: 48%;
+
       div {
         display: flex;
         flex-direction: row;
@@ -51,8 +55,10 @@
         }
       }
     }
-    .detalles-factura{
+
+    .detalles-factura {
       width: 48%;
+
       div {
         display: flex;
         flex-direction: row;
@@ -72,7 +78,8 @@
       }
     }
   }
-  .total-container{
+
+  .total-container {
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -83,15 +90,66 @@
     border-top: 1px solid #F4F4F4;
     align-self: self-end;
     margin-bottom: 20px;
-    label{
+
+    label {
       font-size: 14px;
       font-weight: 600;
     }
-    p{
+
+    p {
       margin-bottom: 0;
       color: red;
       font-size: 20px;
       font-weight: bold;
+    }
+  }
+
+  .seguir-comprando{
+    display: none;
+  }
+  @media(max-width: 600px) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .detalles-envio-container {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 20px;
+
+      .detalles-cliente {
+        width: 100%;
+      }
+
+      .detalles-factura {
+        width: 100%;
+      }
+    }
+
+    .seguir-comprando{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      label{
+        font-size: 16px;
+        font-weight: 400;
+        color: #9D9EA2;
+        margin-bottom: 10px;
+      }
+
+      button{
+        width: 60%;
+        height: 80px;
+        margin-bottom: 15px;
+        border-radius: 50px;
+        color: white;
+        background-color: #4285F4;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+      }
     }
   }
 }
