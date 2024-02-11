@@ -1,7 +1,7 @@
 <header class="global-container">
   <div class="logo-container">
     <div class="img-conten">
-      <img src="assets\logo\logo.png" alt="logo">
+      <a routerLink="/home"><img src="assets\logo\logo.png" alt="logo"></a>
     </div>
   </div>
   <div class="icon-phone">
@@ -12,8 +12,8 @@
       <div class="select-container">
         <i class="fa-solid fa-bars" style="color: #4285f4; font-size: 25px;"></i>
         <select name="categorias" id="categorias">
-          <option value="1">All </option>
-          <option value="2">Categosasdfsdfsdf </option>
+          <option value="1">All</option>
+          <option value="2">Categosasdfsdfsdf</option>
           <option value="3">Categoria 3</option>
           <option value="4">Categoria 4</option>
         </select>
@@ -28,16 +28,20 @@
   </div>
   <nav class="paginas-container">
     <ul>
-      <li><a href=""></a>Ingresar</li>
-      <li><a href=""></a>Registrarse</li>
-      <li><a href=""></a>Cuenta</li>
-      <li class="separador" style="margin: 0 5px;">|</li>
-      <li><a href=""></a><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></li>
+      <ng-container *ngIf="verificarInformacionLocalStorage(); else cuentaNoRegistrada">
+        <li><a routerLink="/account/info">Cuenta</a></li>
+        <li class="separador" style="margin: 0 5px;">|</li>
+        <li><a routerLink="#"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a></li>
+      </ng-container>
+      <ng-template #cuentaNoRegistrada>
+        <li><a routerLink="auth/ingreso">Ingresar</a></li>
+        <li><a routerLink="auth/registro">Registrarse</a></li>
+        <li><a routerLink="/account/not-logged">Cuenta</a></li>
+        <li class="separador" style="margin: 0 5px;">|</li>
+        <li><a routerLink="/account/not-logged"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a></li>
+      </ng-template>
     </ul>
   </nav>
-  <div class="carrito">
-    <a href=""></a><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large; display: none;"></i>
-  </div>
 </header>
 
 <div>

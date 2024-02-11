@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
+
+  ngOnInit(): void {
+    this.verificarInformacionLocalStorage();
+  }
+
+  verificarInformacionLocalStorage(): boolean {
+    const informacion = localStorage.getItem('cliente');
+    return informacion !== null;
+  }
+
 
 }

@@ -14,4 +14,9 @@ export class ClienteService {
     return this.http.post(url, cliente);
   }
 
+  public getClienteEmail(email: string){
+    let url = environment.WS_PATH + 'clientes/email/' + email;
+    return this.http.get(url);
+  }
+
 }

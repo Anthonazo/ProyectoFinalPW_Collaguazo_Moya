@@ -18,14 +18,14 @@
                 </div>
                 <div class="contasena">
                     <label for="con"> Contraseña </label>
-                    <input type="password" name="con" id="con" [(ngModel)]="ingreso.clave">
+                    <input type="password" name="con" id="con" [(ngModel)]="ingreso.clave" >
                 </div>
                 <div class="botones-container">
                     <button type="submit">Olvide mi contraseña</button>
-                    <button class="n" type="submit" (click)="ingresarUsuario()">Ingresar</button>
+                    <button class="n" type="submit" routerLink="/home" (click)="ingresarUsuario()">Ingresar</button>
                     <button type="submit">Registrate</button>
                     <button class="n" type="submit">Ingresar con Google</button>
-                    <button type="submit">Ingresar como invitado</button>
+                    <button type="submit" routerLink="/home">Ingresar como invitado</button>
                 </div>
             </form>
         </div>
