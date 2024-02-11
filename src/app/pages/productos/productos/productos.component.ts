@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-productos',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./productos.component.scss']
 })
 export class ProductosComponent {
+  productos: any[] = [];
+
+  constructor(private _productosService: ProductoService) {
+    this.productos = _productosService.getProductos();
+  }
 
 }
