@@ -2,9 +2,13 @@
   width: 100%;
 }
 
-.global-container{
+.global-container {
   margin-bottom: 100px;
+  @media(max-width: 600px) {
+   margin-bottom: 0px;
+  }
 }
+
 .breadcrumb-container {
   width: 100%;
   display: flex;
@@ -70,6 +74,27 @@
       margin: 0 10px; // Espaciado alrededor de los divisores
     }
   }
+
+  @media(max-width: 600px) {
+    width: 100%;
+    justify-content: start;
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 0;
+
+    .steps {
+      flex-direction: column;
+      max-width: none;
+      width: 100%;
+
+      .step {
+        justify-content: start;
+        padding: 10px 0 10px 20px;
+        border-bottom: 1px solid black;
+      }
+    }
+  }
 }
 
 .productos-container {
@@ -83,6 +108,7 @@
   padding-top: 45px;
 
   margin-bottom: 30px;
+
   .productos-container {
     width: 70%;
     margin-left: 135px;
@@ -239,26 +265,77 @@
           font-weight: lighter;
         }
       }
-      .container-span{
+
+      .container-span {
         width: 100%;
         display: flex;
         flex-direction: row;
-        div{
+
+        div {
           width: 56px;
           border: 1px solid #F4F4F4;
           display: flex;
           justify-content: center;
           align-items: center;
           margin-right: 10px;
-          img{
+
+          img {
             width: 30px;
           }
 
-          .bitcoin{
+          .bitcoin {
             width: 20px;
           }
         }
       }
     }
+
   }
+
+  @media(max-width: 600px) {
+    flex-direction: column;
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 30px;
+
+    .productos-container {
+      width: 100%;
+      margin-left: 0px;
+      padding: 20px;
+
+      .tittle {
+        h1 {
+          font-weight: 600;
+        }
+      }
+
+      .indicaciones-envio-container {
+        display: flex;
+        flex-direction: column;
+
+        .envio,
+        .garantia,
+        .reembolso {
+          width: 100%;
+        }
+        .descripcion:nth-child(1) {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .precio-container {
+      width: 90%;
+      margin-right: 5%;
+      margin-left: 5%;
+      margin-top: 0px;
+      min-height: auto;
+
+      .ofertas-cliente {
+        width: 100%;
+      }
+    }
+  }
+
 }

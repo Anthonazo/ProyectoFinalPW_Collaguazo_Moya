@@ -11,6 +11,7 @@ import { TotalComponent } from './completado/components/total/total.component';
 import { FormularioEnvioComponent } from './verificacion/components/formulario-envio/formulario-envio.component';
 import { TotalConfirmacionComponent } from './verificacion/components/total-confirmacion/total-confirmacion.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,6 +31,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     CheckoutRouting,
     SharedModule,
+    FormsModule
   ]
 })
 export class CheckoutModule { }

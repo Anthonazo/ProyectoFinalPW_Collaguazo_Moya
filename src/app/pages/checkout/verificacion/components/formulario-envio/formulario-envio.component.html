@@ -1,1 +1,74 @@
-<p>formulario-envio works!</p>
+<div class="global-container">
+  <div class="tittle">
+    <h1>Direcci&oacute;n de env&iacute;o</h1>
+  </div>
+  <div class="formulario">
+    <form class="datos-cliente-formulario">
+      <div class="nombre">
+        <div class="nombre-input-container">
+          <label>NOMBRE *</label>
+          <input type="text" name="nombre" id="nombre">
+        </div>
+        <div class="apellido-input-container">
+          <label>APELLIDO *</label>
+          <input type="text" name="apellido" id="apellido">
+        </div>
+      </div>
+      <div class="pais-select-container">
+        <label>PAIS *</label>
+        <select name="pais" id="pais">
+          <option value="">Ecuador</option>
+          <option value="">Colombia</option>
+          <option value="">Mexico</option>
+          <option value="">Argentina</option>
+          <option value="">Chile</option>
+        </select>
+      </div>
+      <div class="direccion-container">
+        <label>DIRECCION *</label>
+        <input type="text" name="principal" id="principal" placeholder="Numero de vivienda, calle principal y secundariaa">
+        <input type="text" name="secundaria" id="secundaria" placeholder="Departamento, Casa, Piso, etc. (opcional)">
+      </div>
+      <div class="ciudad-inputs-container">
+        <div class="ciudad">
+          <label>CIUDAD *</label>
+          <input type="text" name="ciudad" id="ciudad">
+        </div>
+        <div class="provincia">
+          <label>PROVICIA *</label>
+          <input type="text" name="provincia" id="provincia">
+        </div>
+        <div class="codigo-postal">
+          <label>CODIGO POSTAL *</label>
+          <input type="text" name="codigo-postal" id="codigo-postal">
+        </div>
+      </div>
+      <div class="datos-extras">
+        <div class="celular">
+          <label>NUMERO CELULAR *</label>
+          <input type="text" name="celular" id="celular">
+        </div>
+        <div class="correo">
+          <label>CORREO *</label>
+          <input type="email" name="correo" id="correo">
+        </div>
+      </div>
+    </form>
+    <form class="notas-especiales-formulario">
+      <div class="notas-especiales">
+        <label>AGREGAR NOTAS ESPECIALES (OPCIONAL)</label>
+        <textarea name="especiales" id="especiales" cols="30" rows="10"></textarea>
+      </div>
+    </form>
+    <form class="caso-especial-formulario">
+      <div class="fuera-stock">
+        <label>Que hacer si el producto esta fuera de stock? (situacion momentanea)</label>
+        <select name="stock" id="stock">
+          <option value="">Contactarme via telefonica</option>
+          <option value="">Enviarme un correo electronico</option>
+          <option value="">Cancelar mi orden</option>
+        </select>
+      </div>
+    </form>
+  </div>
+</div>
