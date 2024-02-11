@@ -156,6 +156,10 @@ a:hover {
   width: 50%;
 }
 
+.carrito-logo{
+  display: none;
+}
+
 @media (max-width: 600px) {
   .menu-container {
     display: none;
@@ -178,7 +182,7 @@ a:hover {
   }
 
   .buscar-container{
-    width: 90%;
+    width: 85%;
   }
 
   .carrito i{
@@ -195,5 +199,10 @@ a:hover {
   i {
     display: block !important;
   }
+  }
+
+  .carrito-logo{
+    display: block;
+    margin-right: 5px;
   }
 }
