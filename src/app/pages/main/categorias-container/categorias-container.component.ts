@@ -10,7 +10,9 @@ export class CategoriasContainerComponent implements OnInit{
   categorias: any[] = [];
   
   constructor(private _categoriasService: CategoriasService) {
-    this.categorias = _categoriasService.getCategorias();
+    this._categoriasService.getCategotiasBackend().subscribe((result: any[]) => {
+      this.categorias = result;
+    });
   }
 
   ngOnInit() {

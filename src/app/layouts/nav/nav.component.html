@@ -4,7 +4,7 @@
       <a routerLink="/home"><img src="assets\logo\logo.png" alt="logo"></a>
     </div>
   </div>
-  <div class="icon-phone">
+  <div class="icon-phone" (click)="openSidebar()">
     <i class="fa-solid fa-bars" style="color: #4285f4; font-size: 25px; display: none;"></i>
   </div>
   <div class="buscar-container">
@@ -42,17 +42,7 @@
       </ng-template>
     </ul>
   </nav>
+  <div class="carrito-logo">
+    <a routerLink="/account/not-logged"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a>
+  </div>
 </header>
-
-<div>
-  <nav class="menu-container">
-    <ul>
-      <li><a href="">Outlet</a></li>
-      <li><a href="">Mas Vendido</a></li>
-      <li><a href="">Nuestras Recomenaciones</a></li>
-      <li><a href="">Marcas</a></li>
-      <li><a href="">Categorias</a></li>
-      <li><a href="">Sobre Nosotros</a></li>
-    </ul>
-  </nav>
-</div>
