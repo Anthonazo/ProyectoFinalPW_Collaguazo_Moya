@@ -10,6 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import{HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AccountInfoComponent } from './pages/account/account-info/account-info.component';
+import { SidebarComponent } from './layouts/sidebar/sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -19,13 +21,15 @@ import { AccountInfoComponent } from './pages/account/account-info/account-info.
     NavComponent,
     FooterComponent,
     AccountInfoComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
