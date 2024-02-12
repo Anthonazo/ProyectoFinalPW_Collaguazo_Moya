@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/Environments/environmets';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,9 @@ export class CategoriasService {
 
   getCategorias() {
     return this.categorias
+  }
+
+  getCategotiasBackend() {
+    let url = environment.WS_PATH + '/categorias'; 
   }
 }

@@ -18,7 +18,6 @@ import { AccountInfoComponent } from './pages/account/account-info/account-info.
     SkeletonComponent,
     NavComponent,
     FooterComponent,
-    AccountInfoComponent,
   ],
   imports: [
     BrowserModule,

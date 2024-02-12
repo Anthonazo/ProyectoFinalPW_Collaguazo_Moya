@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductoCardComponent } from './components/producto-card/producto-card.component';
 import { CarritoCardComponent } from './components/carrito-card/carrito-card.component';
 import { FormsModule } from '@angular/forms';
+import { AppComponent } from '../app.component';
 
 
 
@@ -13,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     ProductoCardComponent,

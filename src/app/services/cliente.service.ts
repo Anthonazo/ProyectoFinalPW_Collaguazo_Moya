@@ -19,4 +19,8 @@ export class ClienteService {
     return this.http.get(url);
   }
 
+  public actualizarCliente(cliente: any){
+    let url = environment.WS_PATH + 'clientes'
+    return this.http.put(url, cliente);
+  }
 }
