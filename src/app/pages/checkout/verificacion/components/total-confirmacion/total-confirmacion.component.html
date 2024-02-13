@@ -2,7 +2,7 @@
   <div class="descripcion-precio-container">
     <div class="subtotal">
       <span>Subtotal</span>
-      <span>$2900.00</span>
+      <span>${{precioTotal}}.00</span>
     </div>
     <div class="descuento">
       <span>Descuento</span>
@@ -15,14 +15,14 @@
   </div>
   <div class="ofertas-cliente">
     <label>
-      <input type="checkbox"> Confirmo que la dirección es 100% correcta. No responsabilizo a Tech Shop por ingreso de direcciones incorrectas. *
+      <input type="checkbox" [(ngModel)]="direccionConfirmada"> Confirmo que la dirección es 100% correcta. No responsabilizo a Tech Shop por ingreso de direcciones incorrectas. *
     </label>
     <label>
-      <input type="checkbox"> Autorizo a Tech Shop a enviar promociones a mi email.
+      <input type="checkbox" [(ngModel)]="aceptaPromociones"> Autorizo a Tech Shop a enviar promociones a mi email.
     </label>
   </div>
   <div class="verificar-container">
-    <button class="verificar-button">Pedir | $2600.00</button>
+    <button class="verificar-button" (click)="onButtonPress()">Pedir | $2600.00</button>
   </div>
 
   <div class="pago-seguro">

@@ -6,6 +6,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Cliente } from 'src/app/models/Cliente';
+import { TotalPrecioService } from 'src/app/services/total-precio.service';
 
 @Component({
   selector: 'app-carrito-container',
@@ -17,7 +18,7 @@ export class CarritoContainerComponent {
   subTotal: number = 0;
   detalleCarrito: DetallesCarrito = new DetallesCarrito();
 
-  constructor(private _productoService: ProductoService, private _carritoService: CarritoService, private _clienteService: ClienteService) {
+  constructor(private _productoService: ProductoService, private _carritoService: CarritoService, private _clienteService: ClienteService, private _totalPrecioService: TotalPrecioService) {
 
   }
 
@@ -31,12 +32,15 @@ export class CarritoContainerComponent {
       },
       (error) => {
         console.error('Error al obtener los productos:', error);
-      });;
+      });
   }
   onPrecioTotalChange(precioTotal: number): void {
     console.log('Precio total actualizado:', precioTotal);
     this.subTotal = this.subTotal + precioTotal;
-    // Puedes realizar cualquier acción adicional aquí, como actualizar un componente de resumen de carrito.
   }
+
+  verficarCompra() {
+    localStorage.setItem('subtotal', JSON.stringify(this.subTotal));
   }
+}
 

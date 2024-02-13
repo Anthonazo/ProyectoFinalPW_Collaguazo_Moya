@@ -32,7 +32,7 @@ export class ClienteService {
     }
   }
   public actualizarCliente(cliente: any) {
-    let url = environment.WS_PATH + 'clientes'
+    let url = environment.WS_PATH + '/clientes'
     return this.http.put(url, cliente);
   }
 }

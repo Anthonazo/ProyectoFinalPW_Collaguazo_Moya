@@ -21,10 +21,10 @@
   </div>
   <div class="form-precio-container">
     <div class="formulario">
-      <app-formulario-envio></app-formulario-envio>
+      <app-formulario-envio [botonPresionado]="totalConfirmacion.botonPresionado"></app-formulario-envio>
     </div>
     <div class="precio">
-      <app-total-confirmacion></app-total-confirmacion>
+      <app-total-confirmacion #totalConfirmacion></app-total-confirmacion>
     </div>
   </div>
 </div>
