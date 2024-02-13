@@ -1,6 +1,6 @@
-<div class="global-container">
+<div class="global-container" *ngIf="producto">
   <div class="nombre" id="text">
-    <p>ASUS ROG Zephyrus M16 16" Gaming Laptop </p>
+    <p>{{producto.nombre}} </p>
   </div>
   <div class="container-producto-inf">
     <div class="container-img">
@@ -8,24 +8,25 @@
         <img src="/assets/img/productos/iphone.png" alt="iphone">
       </div>
     </div>
-    <div  id="presentacion">
+    <div id="presentacion">
       <div class="cont-img">
-          <button><i class="fa-solid fa-chevron-left"></i></button>
+        <button><i class="fa-solid fa-chevron-left"></i></button>
         <div class="imgs-container">
           <img src="/assets/img/productos/iphone.png" alt="1">
           <img src="/assets/img/productos/iphone.png" alt="1">
           <img src="/assets/img/productos/iphone.png" alt="1">
         </div>
-          <button><i class="fa-solid fa-chevron-right"></i></button>
+        <button><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
 
     <div class="inf-producto">
       <div class="nombre-pro">
-        <p>ASUS ROG Zephyrus M16 16" Gaming Laptop - Off Black (Intel Core i9-13900H/1TB SSD/32GB RAM/GeForce RTX 4070)</p>
+        <p>{{producto.breveDescripcion}}
+        </p>
       </div>
       <div class="container-precio">
-        <p>$2,900.00</p>
+        <p>${{producto.precio}}</p>
       </div>
       <div class="accion-producto">
         <div class="cantidad-container">
@@ -43,33 +44,28 @@
   </div>
   <div class="container-imgs-prod">
     <div class="cont-img">
-        <button><i class="fa-solid fa-chevron-left"></i></button>
+      <button><i class="fa-solid fa-chevron-left"></i></button>
       <div class="imgs-container">
         <img src="/assets/img/productos/iphone.png" alt="1">
         <img src="/assets/img/productos/iphone.png" alt="1">
         <img src="/assets/img/productos/iphone.png" alt="1">
       </div>
-        <button><i class="fa-solid fa-chevron-right"></i></button>
+      <button><i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </div>
   <div class="descripcion-container">
     <div class="tittle">
       <h1>Informaci&oacute;n del producto</h1>
     </div>
-    <div class="descripcion" >
+    <div class="descripcion">
       <ul>
-        <li>El procesador hexa-core Intel Core i9-13900H de 2,6 GHz y 32 GB de RAM DDR5 se combinan para producir un
-          rendimiento de alta velocidad para afrontar juegos ricos en gráficos y otras tareas diarias con la máxima
-          precisión.</li>
-        <li>La unidad de estado sólido (SSD) de 1 TB ofrece un amplio espacio de almacenamiento y un acceso
-          increíblemente rápido a sus juegos y otros archivos multimedia</li>
-        <li>La tarjeta gráfica NVIDIA GeForce RTX 4070 con 8 GB de memoria dedicada ofrece imágenes impresionantes con
-          altas velocidades de fotogramas para una experiencia de juego inmersiva.</li>
-        <li>La pantalla Nebula WQXGA de 16" con una resolución nativa de 2560 x 1600 ofrece una claridad visual
-          excepcional con colores brillantes y un contraste audaz</li>
-        <li>M16 presenta metal líquido mejorado tanto en la CPU como en un tercer ventilador de entrada, entre otras
-          características premium, para permitir un mejor rendimiento sostenido durante largas sesiones de juego.</li>
+        <li>{{producto.descripcion}}</li>
       </ul>
     </div>
   </div>
 </div>
+<ng-container *ngIf="!producto; else elseTemplate">
+</ng-container>
+<ng-template #elseTemplate>
+  <h1>El producto no existe</h1>
+</ng-template>

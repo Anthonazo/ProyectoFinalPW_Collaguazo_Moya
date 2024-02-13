@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
@@ -6,12 +6,21 @@ import { ProductoService } from 'src/app/services/producto.service';
   templateUrl: './tendencias-container.component.html',
   styleUrls: ['./tendencias-container.component.scss']
 })
-export class TendenciasContainerComponent {
+export class TendenciasContainerComponent implements OnInit{
   productos: any[] = [];
   @ViewChild('containerEtiquetas') containerEtiquetas: ElementRef;
   constructor(private _productosService: ProductoService, containerEtiquetas: ElementRef) {
-    this.productos = _productosService.getProductos();
     this.containerEtiquetas = containerEtiquetas;
+  }
+
+  ngOnInit(): void {
+    this._productosService.getProductos().subscribe(
+      (data) => {
+        this.productos = data;
+      },
+      (error) => {
+        console.error('Error al obtener los productos:', error);
+      })
   }
 
   scrollToRight() {

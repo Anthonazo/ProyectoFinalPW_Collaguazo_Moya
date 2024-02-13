@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DescripcionComponent } from './descripcion/descripcion.component';
 
 const routes: Routes = [
-  { path:'', component:  DescripcionComponent},
+  { path: '', component: DescripcionComponent },
+  { path:':identificador', component:  DescripcionComponent},
 ];
 
 @NgModule({
