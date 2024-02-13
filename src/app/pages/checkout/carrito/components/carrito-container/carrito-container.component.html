@@ -30,6 +30,7 @@
       <div class="carrito-card-container" *ngFor="let detalle of carrito?.detalles" >
         <app-carrito-card [detalle]="detalle" (precioTotalChange)="onPrecioTotalChange($event)"></app-carrito-card>
       </div>
+
       <div class="indicaciones-envio-container">
         <div class="envio">
           <div class="titulo">

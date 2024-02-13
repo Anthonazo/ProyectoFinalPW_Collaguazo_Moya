@@ -13,11 +13,9 @@ import { Cliente } from 'src/app/models/Cliente';
   styleUrls: ['./carrito-container.component.scss']
 })
 export class CarritoContainerComponent {
-  producto?: Producto;
   carrito: any;
-  detallesCarrito: DetallesCarrito[] = [];
-  productos: Producto[] = []
   subTotal: number = 0;
+  detalleCarrito: DetallesCarrito = new DetallesCarrito();
 
   constructor(private _productoService: ProductoService, private _carritoService: CarritoService, private _clienteService: ClienteService) {
 
@@ -40,5 +38,5 @@ export class CarritoContainerComponent {
     this.subTotal = this.subTotal + precioTotal;
     // Puedes realizar cualquier acción adicional aquí, como actualizar un componente de resumen de carrito.
   }
+  }
 
-}
