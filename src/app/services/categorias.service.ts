@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/Environments/environmets';
 
 @Injectable({
   providedIn: 'root'
@@ -44,9 +46,14 @@ export class CategoriasService {
     },
   ]
 
-  constructor() { }
+  constructor(private htttp: HttpClient) { }
 
   getCategorias() {
     return this.categorias
+  }
+
+  getCategotiasBackend() {
+    let url = environment.WS_PATH + 'categorias/list'; 
+    return this.htttp.get<any>(url);
   }
 }

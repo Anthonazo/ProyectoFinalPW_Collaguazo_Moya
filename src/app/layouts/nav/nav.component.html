@@ -31,7 +31,7 @@
       <ng-container *ngIf="verificarInformacionLocalStorage(); else cuentaNoRegistrada">
         <li><a routerLink="/account/info">Cuenta</a></li>
         <li class="separador" style="margin: 0 5px;">|</li>
-        <li><a routerLink="#"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a></li>
+        <li><a routerLink="/checkout/carrito"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a></li>
       </ng-container>
       <ng-template #cuentaNoRegistrada>
         <li><a routerLink="auth/ingreso">Ingresar</a></li>
@@ -46,16 +46,3 @@
     <a routerLink="/account/not-logged"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a>
   </div>
 </header>
-
-<div>
-  <nav class="menu-container">
-    <ul>
-      <li><a href="">Outlet</a></li>
-      <li><a href="">Mas Vendido</a></li>
-      <li><a href="">Nuestras Recomenaciones</a></li>
-      <li><a href="">Marcas</a></li>
-      <li><a href="">Categorias</a></li>
-      <li><a href="">Sobre Nosotros</a></li>
-    </ul>
-  </nav>
-</div>

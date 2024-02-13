@@ -30,6 +30,9 @@ export class ClienteService {
     } else {
       console.log('El objeto no existe en el localStorage.');
     }
-
+  }
+  public actualizarCliente(cliente: any) {
+    let url = environment.WS_PATH + 'clientes'
+    return this.http.put(url, cliente);
   }
 }
