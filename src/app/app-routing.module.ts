@@ -38,11 +38,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/productos/productos.module').then((m) => m.ProductosModule),
       },
-      //{ path: '**', redirectTo: '/home', pathMatch: 'full' },
-    ],
+/*       { path: '**', redirectTo: '/home', pathMatch: 'full' },
+ */    ],
   },
-  //{ path: '**', redirectTo: '/home', pathMatch: 'full' },
-];
+/*   { path: '**', redirectTo: '/home', pathMatch: 'full' },
+ */];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
