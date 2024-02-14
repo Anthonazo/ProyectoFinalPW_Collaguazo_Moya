@@ -10,8 +10,10 @@ export class OfertasContainerComponent {
   productos: any[] = [];
   @ViewChild('containerEtiquetas') containerEtiquetas: ElementRef;
   constructor(private _productosService: ProductoService, containerEtiquetas: ElementRef) {
-    this.productos = _productosService.getProductos();
     this.containerEtiquetas = containerEtiquetas;
+    this._productosService.getProductosBackend().subscribe((productos: any[]) => {
+      this.productos = productos;
+    });
   }
 
   scrollToRight() {
