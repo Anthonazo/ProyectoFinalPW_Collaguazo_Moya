@@ -1,8 +1,12 @@
+import { Direccion } from "./direccion";
+
 export class Cliente {
-    primerNombre?: string;
-    primerApellido?: string;
-    correo?: string;
-    contrasenia?: string;
-    celular?: string;
+  codigo!: number;
+  primerNombre!: string;
+  primerApellido!: string;
+  correo!: string;
+  contrasenia!: string;
+  celular!: string;
+
 }
 

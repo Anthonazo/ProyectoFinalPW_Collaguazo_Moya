@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
+import { Producto } from '../models/producto';
 import { environment } from 'src/Environments/environmets';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -73,14 +75,38 @@ export class ProductoService {
     },
   ]
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
 
-  getProductos() {
-    return this.productos
   }
 
-  getProductosBackend() {
-    let url = environment.WS_PATH + 'productos/list'; 
-    return this.http.get<any>(url);
+
+  //Metodo para devolver Productos:
+  getProductos(){
+    let url = environment.WS_PATH + "/productos/list"
+    return this.http.get<any>(url)
   }
+
+  //Metodo para guardar Productos
+  saveProducto(Producto: Producto){
+    let url = environment.WS_PATH + "/productos"
+    return this.http.post<any>(url, Producto);
+  }
+
+  //Metodo para eliminar
+  deleteProducto(Producto: Producto){
+    let url = environment.WS_PATH + `/productos?id=${Producto.codigo}`
+    return this.http.delete<any>(url);
+  }
+
+  //MEtodo para devolver una Producto:
+  getProductoPorId(codigo: number){
+    let url = environment.WS_PATH + `/productos?codigo=${codigo}`
+    return this.http.get<any>(url)
+  }
+
+  getOfertas(){
+    let url = environment.WS_PATH + "/productos/ofertas"
+    return this.http.get<any>(url)
+  }
+
 }

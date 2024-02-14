@@ -53,7 +53,7 @@ export class CategoriasService {
   }
 
   getCategotiasBackend() {
-    let url = environment.WS_PATH + 'categorias/list'; 
+    let url = environment.WS_PATH + '/categorias/list'; 
     return this.http.get<any>(url);
   }
 }

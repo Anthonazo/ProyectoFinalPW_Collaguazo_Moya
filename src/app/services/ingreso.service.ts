@@ -10,7 +10,7 @@ export class IngresoService {
   constructor(private http: HttpClient) { }
 
   public ingresarUsuario(ingreso: any){
-    let url = environment.WS_PATH + 'ingreso'
+    let url = environment.WS_PATH + '/ingreso'
     return this.http.post(url, ingreso);
   }
 

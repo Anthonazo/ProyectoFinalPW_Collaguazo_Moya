@@ -5,7 +5,7 @@
   <div class="inf-producto-container">
     <div class="descripcion-producto">
       <p>
-        1x IPhone 15 pro max color blanco con 512GB de almacenamiento
+       {{producto?.nombre}}
       </p>
     </div>
     <div class="cantidad-precio-container">
@@ -15,11 +15,12 @@
         <button (click)="increment()">+</button>
       </div>
       <div class="precio-unitario">
-        <p>${{precioUnitario}}</p>
+        <p>${{producto?.precio}}</p>
       </div>
+      <button (click)="eliminar()"><i class="fa-regular fa-trash-can"></i></button>
     </div>
     <div class="precio-total">
-      <p>${{precioTotal}}</p>
+      <p>${{precioTotalUnitario}}</p>
     </div>
   </div>
 

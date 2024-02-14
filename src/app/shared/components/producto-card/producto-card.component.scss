@@ -13,6 +13,7 @@
   text-align: center;
   flex-direction: column;
 
+
   @media (max-width: 600px) {
     width: 165px;
     height: 403px;
@@ -75,8 +76,9 @@
   margin-bottom: 24px;
 
   img {
-    width: 60%;
-    height: 60%;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
   }
 
 }
