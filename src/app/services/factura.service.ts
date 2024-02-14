@@ -16,5 +16,10 @@ export class FacturaService {
        codigo_cliente: codigoCliente
      }
     return this.http.post<any>(url, cliente);
+   }
+
+   getFacturaPorCliente(codigo: number){
+    let url = environment.WS_PATH + `/facturas?codigo=${codigo}`
+    return this.http.get<any>(url)
   }
 }

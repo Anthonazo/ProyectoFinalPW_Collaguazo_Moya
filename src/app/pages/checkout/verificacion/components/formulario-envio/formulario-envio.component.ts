@@ -6,6 +6,9 @@ import { DireccionService } from 'src/app/services/direccion.service';
 import { Direccion } from '../../../../../models/direccion';
 import { FormBuilderService } from '../../form-builder.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-formulario-envio',
@@ -25,7 +28,7 @@ export class FormularioEnvioComponent {
   clineteAct: Cliente = new Cliente();
   direccionAct: Direccion = new Direccion();
 
-  constructor(private clienteService: ClienteService, private _direccionService: DireccionService, private _formBuilderService: FormBuilderService, private _facturaService: FacturaService) {
+  constructor(private clienteService: ClienteService, private _direccionService: DireccionService, private _formBuilderService: FormBuilderService, private _facturaService: FacturaService,  private router: Router,private _carritoService: CarritoService) {
   }
 
   ngOnInit(): void {
@@ -92,11 +95,23 @@ export class FormularioEnvioComponent {
        });
 
        this._facturaService.generarFactura(this.cliente.codigo).subscribe(data => {
-        console.log(data);
-      });
+         console.log(data);
+       });
+
+       const informacion = localStorage.getItem('carrito');
+       if (informacion) {
+        const informacionCarrito = JSON.parse(informacion);
+         const codigo = informacionCarrito.codigo
+         this._carritoService.updateCarrito(codigo).subscribe(data => {
+         });
+       }
+
+
 
       this.clineteAct = new Cliente();
       this.direccionAct = new Direccion();
+
+      this.router.navigate(['/checkout/completado']);
     }
   }
 
@@ -119,19 +134,24 @@ export class FormularioEnvioComponent {
   }
 
   obtenerDireccion() {
-    this._direccionService.getDireccionPorCliente(this.cliente.codigo).subscribe(
+      this._direccionService.getDireccionPorCliente(this.cliente.codigo).subscribe(
       (data) => {
         this.direccion = data;
-
       },
       (error) => {
         console.error('Error al obtener la direccion', error);
+        this.direccion.cliente = this.cliente;
+        this.direccion.codigoPostal = "";
+        this.direccion.direccionPricipal = "";
+        this.direccion.direccionSecundaria = "";
+        this.direccion.nombreCiudad = "";
+        this.direccion.nombrePais = "";
+        this.direccion.nombreProvincia = "";
+        this._direccionService.saveDireccion(this.direccion).subscribe(
+          (error) => {
+            console.error('No se pudo generar una direccion', error);
+
+          });
       });
-
-
-  }
-
-  actualizarDatosCliente() {
-
   }
 }

@@ -7,6 +7,7 @@ import { CarritoService } from 'src/app/services/carrito.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Cliente } from 'src/app/models/Cliente';
 import { TotalPrecioService } from 'src/app/services/total-precio.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito-container',
@@ -18,7 +19,7 @@ export class CarritoContainerComponent {
   subTotal: number = 0;
   detalleCarrito: DetallesCarrito = new DetallesCarrito();
 
-  constructor(private _productoService: ProductoService, private _carritoService: CarritoService, private _clienteService: ClienteService, private _totalPrecioService: TotalPrecioService) {
+  constructor(private _productoService: ProductoService, private _carritoService: CarritoService, private _clienteService: ClienteService, private _totalPrecioService: TotalPrecioService, private router: Router) {
 
   }
 
@@ -41,6 +42,7 @@ export class CarritoContainerComponent {
 
   verficarCompra() {
     localStorage.setItem('subtotal', JSON.stringify(this.subTotal));
+    this.router.navigate(['/checkout/verificacion']);
   }
 }
 

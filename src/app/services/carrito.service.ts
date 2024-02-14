@@ -38,6 +38,11 @@ export class CarritoService {
     return this.http.get<any>(url)
   }
 
+  updateCarrito(codigo: number){
+    let url = environment.WS_PATH + `/carritos`
+    return this.http.put<any>(url, codigo)
+  }
+
   updateDetalleCarrito(detalleCarrito: DetallesCarrito) {
     let url = environment.WS_PATH + "/carritos"
     return this.http.post(url, detalleCarrito);

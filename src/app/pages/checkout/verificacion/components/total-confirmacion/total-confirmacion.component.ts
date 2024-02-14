@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { TotalPrecioService } from 'src/app/services/total-precio.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class TotalConfirmacionComponent {
 
   // Llama a este método cuando se presione el botón
 
-  constructor(private _totalPrecioService: TotalPrecioService) {}
+  constructor(private _totalPrecioService: TotalPrecioService, private router: Router) {}
 
   ngOnInit(): void {
     const subtotal = localStorage.getItem('subtotal');
@@ -30,11 +31,12 @@ export class TotalConfirmacionComponent {
 
   onButtonPress(): void {
     if (this.direccionConfirmada && this.aceptaPromociones) {
+      this.botonPresionado.emit();
       alert("Gracias por su honestidad y aceptar las promociones");
-      this.botonPresionado.emit();
+
     } else if (this.direccionConfirmada) {
-      alert("Gracias por su honestidad");
       this.botonPresionado.emit();
+      alert("Gracias por su honestidad");
     } else {
       alert("Debe confirmar que la informacion es totalmente verdadera");
     }

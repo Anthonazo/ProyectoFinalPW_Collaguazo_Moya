@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Factura } from 'src/app/models/factura';
 
 @Component({
   selector: 'app-productos-container',
@@ -10,6 +11,8 @@ export class ProductosContainerComponent {
   cantidad: number = 0;
   precioTotal: number = 0;
   precioUnitario: number = 102.00;
+
+  @Input() factura?: Factura;
 
   constructor() {
 

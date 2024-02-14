@@ -42,6 +42,7 @@ export class AccountInfoComponent implements OnInit {
 
   public cerrarSesion(){
     localStorage.removeItem('cliente');
+    localStorage.removeItem('carrito');
     this.router.navigate(['/home']);
   }
 
