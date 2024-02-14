@@ -46,7 +46,7 @@ export class CategoriasService {
     },
   ]
 
-  constructor(private htttp: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getCategorias() {
     return this.categorias
@@ -54,6 +54,6 @@ export class CategoriasService {
 
   getCategotiasBackend() {
     let url = environment.WS_PATH + '/categorias/list';
-    return this.htttp.get<any>(url);
+    return this.http.get<any>(url);
   }
 }

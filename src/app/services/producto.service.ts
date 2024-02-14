@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { environment } from 'src/Environments/environmets';
+import { HttpClient } from '@angular/common/http';
 import { Producto } from '../models/producto';
 
 @Injectable({
@@ -100,6 +101,11 @@ export class ProductoService {
   //MEtodo para devolver una Producto:
   getProductoPorId(codigo: number){
     let url = environment.WS_PATH + `/productos?codigo=${codigo}`
+    return this.http.get<any>(url)
+  }
+
+  getOfertas(){
+    let url = environment.WS_PATH + "/productos/ofertas"
     return this.http.get<any>(url)
   }
 

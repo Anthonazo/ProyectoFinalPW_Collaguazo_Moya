@@ -6,5 +6,6 @@ export class Producto {
   precio?: number;
   cantidad?: number;
   imagen?: string;
+  oferta?: number
 }
 

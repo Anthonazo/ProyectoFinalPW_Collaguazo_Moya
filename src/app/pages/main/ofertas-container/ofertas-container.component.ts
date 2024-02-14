@@ -11,10 +11,13 @@ export class OfertasContainerComponent implements OnInit{
   @ViewChild('containerEtiquetas') containerEtiquetas: ElementRef;
   constructor(private _productosService: ProductoService, containerEtiquetas: ElementRef) {
     this.containerEtiquetas = containerEtiquetas;
+    this._productosService.getProductos().subscribe((productos: any[]) => {
+      this.productos = productos;
+    });
   }
 
   ngOnInit(): void {
-    this._productosService.getProductos().subscribe(
+    this._productosService.getOfertas().subscribe(
       (data) => {
         this.productos = data;
       },
