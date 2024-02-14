@@ -1,8 +1,10 @@
 export class Producto {
-    nombre?: string;
-    descripcion?: string;
-    precio?: number;
-    cantidad?: number;
-    imagen?: string;
+  codigo?: number;
+  nombre?: string;
+  descripcion?: string;
+  breveDescripcion?: string;
+  precio?: number;
+  cantidad?: number;
+  imagen?: string;
 }
 
