@@ -49,9 +49,7 @@ export class NavComponent implements OnInit {
   }
 
   guardarBusqueda(cadenaTexto: string) {
-    // Obtener las búsquedas actuales o inicializar un arreglo vacío si no hay ninguna
     let busquedas = JSON.parse(localStorage.getItem('busquedas') || '[]');
-    // Añadir la nueva búsqueda si no existe ya en el arreglo
     if (!busquedas.includes(cadenaTexto) && !this.sugerencias.includes(cadenaTexto)) {
       this.sugerencias.push(cadenaTexto);
       busquedas.push(cadenaTexto);
@@ -61,7 +59,6 @@ export class NavComponent implements OnInit {
 
   seleccionarSugerencia(sugerencia: string) {
     this.cadenaTexto = sugerencia;
-    // Ocultar el contenedor de sugerencias
     this.mostrarSugerencias = false;
   }
 }

@@ -19,6 +19,10 @@ export class ClienteService {
     return this.http.get(url);
   }
 
+  public getClientePorId(codigo: number) {
+    let url = environment.WS_PATH + `/clientes?codigo=${codigo}`
+    return this.http.get<any>(url);
+  }
 
   getClienteLocalStorage() {
     const cliente = localStorage.getItem('cliente');

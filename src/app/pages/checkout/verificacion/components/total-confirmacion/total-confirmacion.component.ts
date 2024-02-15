@@ -9,20 +9,24 @@ import { TotalPrecioService } from 'src/app/services/total-precio.service';
 })
 export class TotalConfirmacionComponent {
   precioTotal: number = 0;
+  iva: number = 0;
+  total: number = 0;
   @Output() botonPresionado = new EventEmitter<void>();
   direccionConfirmada = false;
   aceptaPromociones = false;
 
   // Llama a este método cuando se presione el botón
 
-  constructor(private _totalPrecioService: TotalPrecioService, private router: Router) {}
+  constructor(private _totalPrecioService: TotalPrecioService, private router: Router) { }
 
   ngOnInit(): void {
     const subtotal = localStorage.getItem('subtotal');
     if (subtotal) {
       const objeto: any = JSON.parse(subtotal);
 
-      this.precioTotal =  objeto;
+      this.precioTotal = objeto;
+      this.iva = this.precioTotal * (12 / 100)
+      this.total = this.precioTotal + this.iva
       console.log(objeto);
     } else {
       console.log('El objeto no existe en el localStorage.');

@@ -4,13 +4,9 @@
       <span>Subtotal</span>
       <span>${{precioTotal}}.00</span>
     </div>
-    <div class="descuento">
-      <span>Descuento</span>
-      <span>$0.00</span>
-    </div>
     <div class="costo-envio">
-      <span>Costo de envio</span>
-      <span>$29.00</span>
+      <span>Precio IVA</span>
+      <span>${{iva}}</span>
     </div>
   </div>
   <div class="ofertas-cliente">
@@ -22,7 +18,7 @@
     </label>
   </div>
   <div class="verificar-container">
-    <button class="verificar-button" (click)="onButtonPress()">Pedir | $2600.00</button>
+    <button class="verificar-button" (click)="onButtonPress()">Pedir | ${{ total  | number:'1.2-2' }}</button>
   </div>
 
   <div class="pago-seguro">

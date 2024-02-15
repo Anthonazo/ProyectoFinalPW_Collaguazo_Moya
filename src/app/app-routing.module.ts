@@ -38,6 +38,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/productos/productos.module').then((m) => m.ProductosModule),
       },
+      {
+        path: 'nosotros',
+        loadChildren: () =>
+          import('./pages/nosotros/nosotros.module').then((m) => m.NosotrosModule),
+      },
       { path: '**', redirectTo: '/home', pathMatch: 'full' },
     ],
   },

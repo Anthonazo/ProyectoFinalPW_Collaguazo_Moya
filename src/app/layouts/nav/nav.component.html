@@ -48,6 +48,20 @@
     </ul>
   </nav>
   <div class="carrito-logo">
-    <a routerLink="/account/not-logged"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a>
+    <ng-container *ngIf="verificarInformacionLocalStorage(); else cuentaNoRegistrada">
+      <a routerLink="/checkout/carrito"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a>
+    </ng-container>
+    <ng-template #cuentaNoRegistrada>
+      <a routerLink="/account/not-logged"><i class="fa-solid fa-bag-shopping fa-beat" style="color: #000000; font-size: large;"></i></a>
+    </ng-template>
   </div>
 </header>
+<div>
+  <nav class="menu-container">
+    <ul>
+      <li><a routerLink="/home">Inicio</a></li>
+      <li><a routerLink="/productos">Outlet</a></li>
+      <li><a href="/nosotros">Sobre Nosotros</a></li>
+    </ul>
+  </nav>
+</div>

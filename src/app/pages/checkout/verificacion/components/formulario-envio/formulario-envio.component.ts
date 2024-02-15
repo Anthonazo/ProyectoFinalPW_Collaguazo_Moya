@@ -21,7 +21,7 @@ export class FormularioEnvioComponent {
   @Input() botonPresionado?: EventEmitter<void>;
   formulario?: FormGroup;
 
-  cliente: any;
+  cliente: Cliente = new Cliente();
   informacionCliente: any;
   direccion: Direccion = new Direccion();
 
@@ -30,7 +30,7 @@ export class FormularioEnvioComponent {
 
   existeDireccion: Boolean = false;
 
-  constructor(private clienteService: ClienteService, private _direccionService: DireccionService, private _formBuilderService: FormBuilderService, private _facturaService: FacturaService,  private router: Router,private _carritoService: CarritoService) {
+  constructor(private clienteService: ClienteService, private _direccionService: DireccionService, private _formBuilderService: FormBuilderService, private _facturaService: FacturaService, private router: Router, private _carritoService: CarritoService, private _clienteService: ClienteService) {
   }
 
   ngOnInit(): void {
@@ -44,6 +44,7 @@ export class FormularioEnvioComponent {
       principal: new FormControl('', [Validators.required]),
       secundaria: new FormControl('', [Validators.required]),
       ciudad: new FormControl('', [Validators.required]),
+      provincia: new FormControl('', [Validators.required]),
       codigoPostal: new FormControl('', [Validators.required]),
       celular: new FormControl('', [Validators.required]),
       correo: new FormControl('', [Validators.required]),
@@ -76,14 +77,14 @@ export class FormularioEnvioComponent {
       this.clineteAct.contrasenia = this.cliente.contrasenia;
       this.clineteAct.celular = this.formulario.get('celular')?.value;
 
-       this.clienteService.actualizarCliente(this.clineteAct).subscribe(data => {
-
-       });
+      this.clienteService.actualizarCliente(this.clineteAct).subscribe(data => {
+        console.log()
+      });
 
       this.direccionAct.codigo = this.direccion.codigo;
       this.direccionAct.nombrePais = this.formulario.get('pais')?.value;
       //this.direccionAct.nombreProvincia = this.formulario.get('provincia')?.value;
-      this.direccionAct.nombreProvincia = "Azuay";
+      this.direccionAct.nombreProvincia = this.formulario.get('provincia')?.value;;
       this.direccionAct.nombreCiudad = this.formulario.get('ciudad')?.value;
       this.direccionAct.codigoPostal = this.formulario.get('codigoPostal')?.value;
       this.direccionAct.direccionPricipal = this.formulario.get('principal')?.value;
@@ -93,21 +94,21 @@ export class FormularioEnvioComponent {
       const dir = this.direccionAct;
 
       console.log(dir)
-       this._direccionService.actualizarDireccion(this.direccionAct).subscribe(data => {
+      this._direccionService.actualizarDireccion(this.direccionAct).subscribe(data => {
 
-       });
+      });
 
-       this._facturaService.generarFactura(this.cliente.codigo).subscribe(data => {
-         console.log(data);
-       });
+      this._facturaService.generarFactura(this.cliente.codigo).subscribe(data => {
+        console.log(data);
+      });
 
-       const informacion = localStorage.getItem('carrito');
-       if (informacion) {
+      const informacion = localStorage.getItem('carrito');
+      if (informacion) {
         const informacionCarrito = JSON.parse(informacion);
-         const codigo = informacionCarrito
-         this._carritoService.updateCarrito(codigo).subscribe(data => {
-         });
-       }
+        const codigo = informacionCarrito
+        this._carritoService.updateCarrito(codigo).subscribe(data => {
+        });
+      }
 
 
 
@@ -131,33 +132,41 @@ export class FormularioEnvioComponent {
     const informacion = localStorage.getItem('cliente');
     if (informacion) {
       this.informacionCliente = JSON.parse(informacion);
-      this.cliente = this.informacionCliente.cliente;
+      this._clienteService.getClientePorId(this.informacionCliente.cliente.codigo).subscribe(
+        (data) => {
+          this.cliente = data;
+          console.log(data)
+        });
       this.string = this.informacionCliente.cliente.primerNombre;
     }
   }
 
   obtenerDireccion() {
-      this._direccionService.getDireccionPorCliente(this.cliente.codigo).subscribe(
-      (data) => {
+    const informacion = localStorage.getItem('cliente');
+    if (informacion) {
+      this.informacionCliente = JSON.parse(informacion);
+      this._direccionService.getDireccionPorCliente(this.informacionCliente.cliente.codigo).subscribe(
+        (data) => {
           this.direccion = data;
           console.log(data)
-      },
-      (error) => {
-        this.direccion.cliente = this.cliente;
-        this.direccion.codigoPostal = "";
-        this.direccion.direccionPricipal = "";
-        this.direccion.direccionSecundaria = "";
-        this.direccion.nombreCiudad = "";
-        this.direccion.nombrePais = "";
-        this.direccion.nombreProvincia = "";
-        this._direccionService.saveDireccion(this.direccion).subscribe(
-          (data) => {
-            this._direccionService.getDireccionPorCliente(this.cliente.codigo).subscribe(
-              (data) => {
-                this.direccion = data;
-                console.log(data)
-              });
-          });
-      });
+        },
+        (error) => {
+          this.direccion.cliente = this.cliente;
+          this.direccion.codigoPostal = "";
+          this.direccion.direccionPricipal = "";
+          this.direccion.direccionSecundaria = "";
+          this.direccion.nombreCiudad = "";
+          this.direccion.nombrePais = "";
+          this.direccion.nombreProvincia = "";
+          this._direccionService.saveDireccion(this.direccion).subscribe(
+            (data) => {
+              this._direccionService.getDireccionPorCliente(this.cliente.codigo).subscribe(
+                (data) => {
+                  this.direccion = data;
+                  console.log(data)
+                });
+            });
+        });
+    }
   }
 }

@@ -16,13 +16,7 @@
       </div>
       <div class="pais-select-container">
         <label>PAIS *</label>
-        <select name="pais" id="pais">
-          <option value="">Ecuador</option>
-          <option value="">Colombia</option>
-          <option value="">Mexico</option>
-          <option value="">Argentina</option>
-          <option value="">Chile</option>
-        </select>
+        <input type="text" name="principal" id="principal" placeholder="Numero de vivienda, calle principal y secundariaa" [(ngModel)]="direccion.nombrePais" formControlName="pais" required>
       </div>
       <div class="direccion-container">
         <label>DIRECCION *</label>
@@ -36,7 +30,7 @@
         </div>
         <div class="provincia">
           <label>PROVICIA *</label>
-          <input type="text" name="provincia" id="provincia" [(ngModel)]="direccion.nombrePais" formControlName="pais" required>
+          <input type="text" name="provincia" id="provincia" [(ngModel)]="direccion.nombreProvincia" formControlName="provincia" required>
         </div>
         <div class="codigo-postal">
           <label>CODIGO POSTAL *</label>

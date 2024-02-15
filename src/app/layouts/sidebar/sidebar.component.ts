@@ -18,4 +18,10 @@ export class SidebarComponent{
   toggleSidebar() {
     this.sidebarService.toggle();
   }
+
+  verificarInformacionLocalStorage(): boolean {
+    const informacion = localStorage.getItem('cliente');
+    return informacion !== null;
+  }
+
 }

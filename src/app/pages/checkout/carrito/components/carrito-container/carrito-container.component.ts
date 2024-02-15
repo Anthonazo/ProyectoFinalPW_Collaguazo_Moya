@@ -17,6 +17,10 @@ import { Route, Router } from '@angular/router';
 export class CarritoContainerComponent {
   carrito: any;
   subTotal: number = 0;
+  iva: number = 0;
+  total: number = 0;
+
+
   detalleCarrito: DetallesCarrito = new DetallesCarrito();
 
   constructor(private _productoService: ProductoService, private _carritoService: CarritoService, private _clienteService: ClienteService, private _totalPrecioService: TotalPrecioService, private router: Router) {
@@ -35,9 +39,13 @@ export class CarritoContainerComponent {
         console.error('Error al obtener los productos:', error);
       });
   }
+
   onPrecioTotalChange(precioTotal: number): void {
     console.log('Precio total actualizado:', precioTotal);
     this.subTotal = this.subTotal + precioTotal;
+    this.iva = this.subTotal * (12 / 100)
+    this.total = this.subTotal + this.iva
+    
   }
 
   verficarCompra() {
