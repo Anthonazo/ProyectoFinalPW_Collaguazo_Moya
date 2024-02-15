@@ -46,16 +46,16 @@
   width: 40%;
 }
 .input-container {
-  position: relative; /* Hace que el contenedor sea el punto de referencia para el posicionamiento absoluto de las sugerencias */
+  position: relative;
 }
 
 .sugerencias-container {
   position: absolute;
-  top: 100%; /* Alinea el div justo debajo del input */
+  top: 100%;
   left: 0;
-  width: 100%; /* Opcional: Ajusta el ancho según necesites */
-  background: white; /* Opcional: Fondo para hacerlo visible */
-  z-index: 1000; /* Asegura que se muestre por encima de otros elementos */
+  width: 100%;
+  background: white;
+  z-index: 1000;
 }
 
 .input-research {
@@ -70,6 +70,8 @@
     width: 23%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     border: none;
     border-right: 1px solid #A89595;
     padding-right: 5px;
@@ -152,16 +154,12 @@ select:focus {
 
 a {
   color: black;
-  /* Cambia 'tuColorDeseado' al color que prefieras */
   text-decoration: none;
-  /* Elimina el subrayado predeterminado en los enlaces */
 }
 
 a:hover {
   color: #00000082;
-  /* Cambia 'tuColorDeseado' al color que prefieras */
   text-decoration: none;
-  /* Elimina el subrayado predeterminado en los enlaces */
 }
 
 .input-container {
