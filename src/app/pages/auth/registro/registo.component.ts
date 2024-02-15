@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/Cliente';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { Carrito } from '../../../models/carrito';
+import { DetallesCarrito } from 'src/app/models/detallesCarrito';
 
 @Component({
   selector: 'app-registo',
@@ -14,8 +16,10 @@ export class RegistroComponent {
   boolean: boolean = false;
   contrasenia: String = '';
   cliente: Cliente = new Cliente();
+  carrito: Carrito = new Carrito();
+  detalleCarrito: DetallesCarrito[] = [];
 
-  public constructor(private clienteService: ClienteService, private router: Router, _carritoService: CarritoService) { }
+  public constructor(private clienteService: ClienteService, private router: Router, private _carritoService: CarritoService) { }
 
   public ingresarCliente() {
     this.validarContrasenia();
@@ -49,7 +53,4 @@ export class RegistroComponent {
     }
   }
 
-  crearCarrito() {
-    
-  }
 }

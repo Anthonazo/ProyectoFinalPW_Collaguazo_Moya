@@ -4,5 +4,5 @@ import { DetallesCarrito } from "./detallesCarrito";
 export class Carrito {
   codigo?: number;
   cliente?: Cliente;
-  detallesCarrito?: DetallesCarrito[];
+  detalles?: DetallesCarrito[];
 }
