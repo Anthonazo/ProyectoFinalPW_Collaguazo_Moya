@@ -13,6 +13,11 @@ Para realizar la instalacion de angular y del proyecto
     ng build
     ng serve -o
 ```
+## Funcionamiento
+
+![Informacion de cuenta](https://github.com/Anthonazo/ProyectoFinalPW_Collaguazo_Moya/blob/master/Imagenes/actualizacion%20informacion.png)
+
+
 ## Autores
 
 - [@Daniel Collaguazo](https://github.com/DanielCollaguazo2003)
