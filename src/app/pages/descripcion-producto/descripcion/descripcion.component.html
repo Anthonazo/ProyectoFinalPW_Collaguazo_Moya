@@ -5,16 +5,16 @@
   <div class="container-producto-inf">
     <div class="container-img">
       <div class="img-cont">
-        <img src="/assets/img/productos/iphone.png" alt="iphone">
+        <img src="{{producto.imagen}}" alt="iphone">
       </div>
     </div>
     <div id="presentacion">
       <div class="cont-img">
         <button><i class="fa-solid fa-chevron-left"></i></button>
         <div class="imgs-container">
-          <img src="/assets/img/productos/iphone.png" alt="1">
-          <img src="/assets/img/productos/iphone.png" alt="1">
-          <img src="/assets/img/productos/iphone.png" alt="1">
+          <img src="{{producto.imagen}}" alt="1">
+          <img src="{{producto.imagen}}" alt="1">
+          <img src="{{producto.imagen}}" alt="1">
         </div>
         <button><i class="fa-solid fa-chevron-right"></i></button>
       </div>
@@ -46,9 +46,9 @@
     <div class="cont-img">
       <button><i class="fa-solid fa-chevron-left"></i></button>
       <div class="imgs-container">
-        <img src="/assets/img/productos/iphone.png" alt="1">
-        <img src="/assets/img/productos/iphone.png" alt="1">
-        <img src="/assets/img/productos/iphone.png" alt="1">
+        <img src="{{producto.imagen}}" alt="1">
+        <img src="{{producto.imagen}}" alt="1">
+        <img src="{{producto.imagen}}" alt="1">
       </div>
       <button><i class="fa-solid fa-chevron-right"></i></button>
     </div>
@@ -64,8 +64,3 @@
     </div>
   </div>
 </div>
-<ng-container *ngIf="!producto; else elseTemplate">
-</ng-container>
-<ng-template #elseTemplate>
-  <h1>El producto no existe</h1>
-</ng-template>
