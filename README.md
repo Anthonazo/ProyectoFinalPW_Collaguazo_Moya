@@ -24,6 +24,7 @@ En este apartado se puede observar un apartado dedicad a la visualizacion de la 
 Se implemento un apartado para registro de usuarios 
 ![Registro usuarios](https://github.com/Anthonazo/ProyectoFinalPW_Collaguazo_Moya/blob/master/Imagenes/registro%20usuarios.png)
 
+
 Una vez registrados puede iniciar sesion en su cuenta
 ![Inicio de sesion](https://github.com/Anthonazo/ProyectoFinalPW_Collaguazo_Moya/blob/master/Imagenes/ingreso%20usuarios.png)
 
