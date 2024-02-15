@@ -1,5 +1,5 @@
 <div class="categorias-list">
   <ul *ngFor="let cat of categorias">
-    <li>{{cat.nombre}}</li>
+    <li [class.nombre-clase-css]="cat.codigo == codigo">{{cat.nombre}}</li>
   </ul>
 </div>

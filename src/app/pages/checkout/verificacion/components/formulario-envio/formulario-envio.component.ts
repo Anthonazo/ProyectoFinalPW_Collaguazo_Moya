@@ -28,6 +28,8 @@ export class FormularioEnvioComponent {
   clineteAct: Cliente = new Cliente();
   direccionAct: Direccion = new Direccion();
 
+  existeDireccion: Boolean = false;
+
   constructor(private clienteService: ClienteService, private _direccionService: DireccionService, private _formBuilderService: FormBuilderService, private _facturaService: FacturaService,  private router: Router,private _carritoService: CarritoService) {
   }
 
@@ -90,6 +92,7 @@ export class FormularioEnvioComponent {
 
       const dir = this.direccionAct;
 
+      console.log(dir)
        this._direccionService.actualizarDireccion(this.direccionAct).subscribe(data => {
 
        });
@@ -101,7 +104,7 @@ export class FormularioEnvioComponent {
        const informacion = localStorage.getItem('carrito');
        if (informacion) {
         const informacionCarrito = JSON.parse(informacion);
-         const codigo = informacionCarrito.codigo
+         const codigo = informacionCarrito
          this._carritoService.updateCarrito(codigo).subscribe(data => {
          });
        }
@@ -136,10 +139,10 @@ export class FormularioEnvioComponent {
   obtenerDireccion() {
       this._direccionService.getDireccionPorCliente(this.cliente.codigo).subscribe(
       (data) => {
-        this.direccion = data;
+          this.direccion = data;
+          console.log(data)
       },
       (error) => {
-        console.error('Error al obtener la direccion', error);
         this.direccion.cliente = this.cliente;
         this.direccion.codigoPostal = "";
         this.direccion.direccionPricipal = "";
@@ -148,9 +151,12 @@ export class FormularioEnvioComponent {
         this.direccion.nombrePais = "";
         this.direccion.nombreProvincia = "";
         this._direccionService.saveDireccion(this.direccion).subscribe(
-          (error) => {
-            console.error('No se pudo generar una direccion', error);
-
+          (data) => {
+            this._direccionService.getDireccionPorCliente(this.cliente.codigo).subscribe(
+              (data) => {
+                this.direccion = data;
+                console.log(data)
+              });
           });
       });
   }

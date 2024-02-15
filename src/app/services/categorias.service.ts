@@ -56,4 +56,9 @@ export class CategoriasService {
     let url = environment.WS_PATH + '/categorias/list';
     return this.http.get<any>(url);
   }
+
+  getCategoriaPorId(codigo: number){
+    let url = environment.WS_PATH + `/categorias?codigo=${codigo}`
+    return this.http.get<any>(url)
+  }
 }

@@ -15,32 +15,37 @@ export class CarritoService {
 
 
   //Metodo para devolver Carrito:
-  getCarrito(){
+  getCarrito() {
     let url = environment.WS_PATH + "/Carrito/list"
     return this.http.get<any>(url)
   }
 
   //Metodo para guardar Carrito
-  saveCarrito(Carrito: Carrito){
+  saveCarrito(Carrito: Carrito) {
     let url = environment.WS_PATH + "/Carrito"
     return this.http.post<any>(url, Carrito);
   }
 
   //Metodo para eliminar
-  deleteCarrito(Carrito: Carrito){
+  deleteCarrito(Carrito: Carrito) {
     let url = environment.WS_PATH + `/Carrito?id=${Carrito.codigo}`
     return this.http.delete<any>(url);
   }
 
   //MEtodo para devolver una Carrito:
-  getCarritoPorCliente(codigo: number){
+  getCarritoPorCliente(codigo: number) {
     let url = environment.WS_PATH + `/carritos?codigo=${codigo}`
     return this.http.get<any>(url)
   }
 
-  updateCarrito(codigo: number){
-    let url = environment.WS_PATH + `/carritos`
-    return this.http.put<any>(url, codigo)
+  updateCarrito(codigo: number) {
+    let url = environment.WS_PATH + `/carritos/clear`
+    const codigoCarrito =
+    {
+      "codigo_cliente": codigo
+    }
+
+    return this.http.post<any>(url, codigoCarrito)
   }
 
   updateDetalleCarrito(detalleCarrito: DetallesCarrito) {
