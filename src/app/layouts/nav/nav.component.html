@@ -19,10 +19,15 @@
         </select>
       </div>
       <div class="input-container">
-        <input type="text" placeholder="Buscar">
+        <input type="text" placeholder="Buscar" [(ngModel)]="cadenaTexto" (focus)="mostrarSugerencias=true" (blur)="ocultarSugerencias()">
+        <div *ngIf="mostrarSugerencias" class="sugerencias-container">
+          <ul>
+            <li *ngFor="let sugerencia of sugerencias" (click)="seleccionarSugerencia(sugerencia)">{{sugerencia}}</li>
+          </ul>
+        </div>
       </div>
       <div class="icon-container">
-        <i class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>
+        <i (click)="guardarBusqueda(cadenaTexto)" [routerLink]="['/productos/busqueda', cadenaTexto]" class="fa-solid fa-magnifying-glass" style="color: rgb(255, 255, 255);"></i>
       </div>
     </div>
   </div>

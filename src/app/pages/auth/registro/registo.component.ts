@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/Cliente';
+import { CarritoService } from 'src/app/services/carrito.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class RegistroComponent {
   contrasenia: String = '';
   cliente: Cliente = new Cliente();
 
-  public constructor(private clienteService: ClienteService, private router: Router) { }
+  public constructor(private clienteService: ClienteService, private router: Router, _carritoService: CarritoService) { }
 
   public ingresarCliente() {
     this.validarContrasenia();
@@ -46,5 +47,9 @@ export class RegistroComponent {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  crearCarrito() {
+    
   }
 }

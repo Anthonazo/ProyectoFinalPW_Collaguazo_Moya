@@ -1,6 +1,8 @@
-<div class="global-container">
-  <a [routerLink]="['/productos', categoria.codigo]">
+<a [routerLink]="['/productos', categoria.codigo]">
+  <div class="global-container">
+
     <img src={{categoria.imagen}} alt={{categoria.nombre}}>
     <p>{{categoria.nombre}}</p>
-  </a>
-</div>
+
+  </div>
+</a>

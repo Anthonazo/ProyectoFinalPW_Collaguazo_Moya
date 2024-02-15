@@ -45,6 +45,18 @@
 .buscar-container {
   width: 40%;
 }
+.input-container {
+  position: relative; /* Hace que el contenedor sea el punto de referencia para el posicionamiento absoluto de las sugerencias */
+}
+
+.sugerencias-container {
+  position: absolute;
+  top: 100%; /* Alinea el div justo debajo del input */
+  left: 0;
+  width: 100%; /* Opcional: Ajusta el ancho según necesites */
+  background: white; /* Opcional: Fondo para hacerlo visible */
+  z-index: 1000; /* Asegura que se muestre por encima de otros elementos */
+}
 
 .input-research {
   display: flex;

@@ -7,7 +7,15 @@ import { SidebarService } from 'src/app/services/sidebar.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit{
+export class NavComponent implements OnInit {
+
+  cadenaTexto: string = "";
+  mostrarSugerencias: boolean = false;
+  sugerencias: string[] = [
+    "Hola",
+    "Como",
+    "Estan"
+  ];
 
   constructor(private sidebarService: SidebarService) { }
 
@@ -18,6 +26,21 @@ export class NavComponent implements OnInit{
 
   ngOnInit(): void {
     this.verificarInformacionLocalStorage();
+    this.cargarSugerencias();
+  }
+
+  cargarSugerencias() {
+    const busquedasExistentes = localStorage.getItem('busquedas');
+    if (busquedasExistentes) {
+
+    } else {
+      localStorage.setItem('busquedas', JSON.stringify(this.sugerencias));
+    }
+
+  }
+
+  ocultarSugerencias() {
+    setTimeout(() => this.mostrarSugerencias = false, 200);
   }
 
   verificarInformacionLocalStorage(): boolean {
@@ -25,5 +48,20 @@ export class NavComponent implements OnInit{
     return informacion !== null;
   }
 
+  guardarBusqueda(cadenaTexto: string) {
+    // Obtener las búsquedas actuales o inicializar un arreglo vacío si no hay ninguna
+    let busquedas = JSON.parse(localStorage.getItem('busquedas') || '[]');
+    // Añadir la nueva búsqueda si no existe ya en el arreglo
+    if (!busquedas.includes(cadenaTexto) && !this.sugerencias.includes(cadenaTexto)) {
+      this.sugerencias.push(cadenaTexto);
+      busquedas.push(cadenaTexto);
+      localStorage.setItem('busquedas', JSON.stringify(busquedas));
+    }
+  }
 
+  seleccionarSugerencia(sugerencia: string) {
+    this.cadenaTexto = sugerencia;
+    // Ocultar el contenedor de sugerencias
+    this.mostrarSugerencias = false;
+  }
 }

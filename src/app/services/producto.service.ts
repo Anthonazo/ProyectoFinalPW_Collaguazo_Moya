@@ -109,4 +109,9 @@ export class ProductoService {
     return this.http.get<any>(url)
   }
 
+  getProductoPorNombre(cadenaBusqueda: String) {
+    let url = environment.WS_PATH + `/productos/buscar?nombre=${cadenaBusqueda}`
+    return this.http.get<any>(url)
+  }
+
 }
