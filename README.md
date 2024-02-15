@@ -13,7 +13,7 @@ Para realizar la instalacion de angular y del proyecto
     ng build
     ng serve -o
 ```
-    ## Autores
+## Autores
 
 - [@Daniel Collaguazo](https://github.com/DanielCollaguazo2003)
 - [@Anthony Moya](https://www.github.com/Anthonazo)
